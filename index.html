@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Madrid FC — Squad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <img src="img.png" alt="Real Madrid logo" />
+        <div class="logo-text">
+          <span class="logo-title">Real Madrid</span>
+          <span class="logo-sub">Official Squad</span>
+        </div>
+      </div>
+
+      <div class="search-wrap">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search players…" autocomplete="off" />
+      </div>
+
+      <button class="fav-toggle" id="favToggle">
+        <i class="fa-solid fa-heart"></i>
+        <span>Favorites</span>
+        <span class="fav-count" id="favCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- FILTERS -->
+  <div class="filters-bar">
+    <div class="filters-inner">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="GK">GK</button>
+      <button class="filter-btn" data-filter="DEF">DEF</button>
+      <button class="filter-btn" data-filter="MID">MID</button>
+      <button class="filter-btn" data-filter="FWD">FWD</button>
+      <button class="filter-btn" data-filter="Coach">Staff</button>
+    </div>
+  </div>
+
+  <!-- SORT BAR -->
+  <div class="sort-bar" id="sortContainer">
+    <div class="sort-inner">
+      <span class="sort-label">Sort:</span>
+      <button class="sort-btn" data-sort="goals" title="Sort by goals">
+        <i class="fa-solid fa-futbol"></i> Goals
+      </button>
+      <button class="sort-btn" data-sort="apps" title="Sort by appearances">
+        <i class="fa-solid fa-gamepad"></i> Apps
+      </button>
+      <button class="sort-btn" data-sort="assists" title="Sort by assists">
+        <i class="fa-solid fa-hand-fist"></i> Assists
+      </button>
+      <button class="sort-btn" data-sort="age" title="Sort by age">
+        <i class="fa-solid fa-birthday-cake"></i> Age
+      </button>
+      <button class="export-btn" id="exportFavBtn" title="Export favorites">
+        <i class="fa-solid fa-download"></i> Export
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <div class="section-header">
+      <h2 id="sectionTitle">Full Squad</h2>
+      <span class="player-count" id="playerCount"></span>
+    </div>
+
+    <div class="cards-container" id="cardsContainer"></div>
+
+    <div class="not-found" id="notFound" style="display:none;">
+      <i class="fa-solid fa-circle-xmark"></i>
+      <p>No players found</p>
+      <span>Try a different name or filter</span>
+    </div>
+  </main>
+
+  <!-- PLAYER MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
